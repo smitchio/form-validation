@@ -1,0 +1,246 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/i/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title></title>
+  <meta name="description" content="">
+
+  <!-- Mobile viewport optimized: h5bp.com/viewport -->
+  <meta name="viewport" content="width=device-width">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  <!-- All JavaScript at the bottom, except this Modernizr build.
+       Modernizr enables HTML5 elements & feature detects for optimal performance.
+       Create your own custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="js/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+  <header>
+
+  </header>
+  <div role="main">
+		<!--<div id="sophie">test</div>-->
+		<form id="formDetails" action="receiver.html" method="get" onsubmit="return validate()">
+		
+			<div class="formWrap">
+				<label for="firstName">First Name</label>
+				<input id="firstName" type="text" name="firstName" data-error="You must enter a First Name" />
+			</div>
+			<div class="formWrap">
+				<label for="lastName">Last Name</label>
+				<input id="lastName" type="text" name="lastName" data-error="You must enter a Last Name" />
+			</div>
+			<div class="formWrap">
+				<label for="emailAddress">Email Address</label>
+				<input id="emailAddress" type="text" name="emailAddress" data-error="You must enter an email address" />
+			</div>
+			<div class="selectWrap" id="dob">
+				<label for="birthDateDay">Date of Birth</label>
+	
+				<select id="birthDateDay" name="birthDateDay">
+					<option value="0">Select</option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+					<option>9</option>
+					<option>10</option>
+					<option>11</option>
+					<option>12</option>
+					<option>13</option>
+					<option>14</option>
+					<option>15</option>
+					<option>16</option>
+					<option>17</option>
+					<option>18</option>
+					<option>19</option>
+					<option>20</option>
+					<option>21</option>
+					<option>22</option>
+					<option>23</option>
+					<option>24</option>
+					<option>25</option>
+					<option>26</option>
+					<option>27</option>
+					<option>28</option>
+					<option>29</option>
+					<option>30</option>
+					<option>31</option>
+				</select>
+			
+				<select id="birthDateMonth" name="birthDateMonth">
+					<option value="0">Select</option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+					<option>9</option>
+					<option>10</option>
+					<option>11</option>
+					<option>12</option>
+				</select>
+				
+				<select id="birthDateYear" name="birthDateYear">
+					<option value="0">Select</option>
+					<option>2012</option>
+					<option>2011</option>
+					<option>2010</option>
+					<option>2009</option>
+					<option>2008</option>
+					<option>2007</option>
+					<option>2006</option>
+					<option>2005</option>
+					<option>2004</option>
+					<option>2003</option>
+					<option>2002</option>
+					<option>2001</option>
+					<option>2000</option>
+					<option>1999</option>
+					<option>1998</option>
+					<option>1997</option>
+					<option>1996</option>
+					<option>1995</option>
+					<option>1994</option>
+					<option>1993</option>
+					<option>1992</option>
+					<option>1991</option>
+					<option>1990</option>
+					<option>1989</option>
+					<option>1988</option>
+					<option>1987</option>
+					<option>1986</option>
+					<option>1985</option>
+					<option>1984</option>
+					<option>1983</option>
+					<option>1982</option>
+					<option>1981</option>
+					<option>1980</option>
+					<option>1979</option>
+					<option>1978</option>
+					<option>1977</option>
+					<option>1976</option>
+					<option>1975</option>
+					<option>1974</option>
+					<option>1973</option>
+					<option>1972</option>
+					<option>1971</option>
+					<option>1970</option>
+					<option>1969</option>
+					<option>1968</option>
+					<option>1967</option>
+					<option>1966</option>
+					<option>1965</option>
+					<option>1964</option>
+					<option>1963</option>
+					<option>1962</option>
+					<option>1961</option>
+					<option>1960</option>
+					<option>1959</option>
+					<option>1958</option>
+					<option>1957</option>
+					<option>1956</option>
+					<option>1955</option>
+					<option>1954</option>
+					<option>1953</option>
+					<option>1952</option>
+					<option>1951</option>
+					<option>1950</option>
+					<option>1949</option>
+					<option>1948</option>
+					<option>1947</option>
+					<option>1946</option>
+					<option>1945</option>
+					<option>1944</option>
+					<option>1943</option>
+					<option>1942</option>
+					<option>1941</option>
+					<option>1940</option>
+					<option>1939</option>
+					<option>1938</option>
+					<option>1937</option>
+					<option>1936</option>
+					<option>1935</option>
+					<option>1934</option>
+					<option>1933</option>
+					<option>1932</option>
+					<option>1931</option>
+					<option>1930</option>
+					<option>1929</option>
+					<option>1928</option>
+					<option>1927</option>
+					<option>1926</option>
+					<option>1925</option>
+					<option>1924</option>
+					<option>1923</option>
+					<option>1922</option>
+					<option>1921</option>
+				</select>
+			</div>
+			<div id="formWrapRadio">
+				<label for="male"> Male</label><input type="radio" id="male" name="gender" value="male" />
+				<label for="female">Female</label><input type="radio" id="female" name="gender" value="female" /> 
+			</div>
+
+			<div class="formWrap" id="country">
+				<select id="selectCountry" name="selectCountry" data-error="You must select a country">
+					<option value="">Select your country</option>
+					<option value="UK">UK</option>
+					<option value="USA">USA</option>
+					<option value="China">China</option>
+				</select>
+			</div>
+
+			<div class="formWrap">
+				<label for="terms"> Please agree to the terms and conditions</label><input type="checkbox" id="terms" name="terms" data-error="You must agree to the terms" />
+			</div>
+				
+			<button type="submit">Submit</button>
+		</form>
+  </div>
+  
+
+  <footer>
+
+  </footer>
+<script src="js/script.js" type="text/javascript" charset="utf-8"></script>
+
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+  <!-- scripts concatenated and minified via build script -->
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
+  <!-- end scripts -->
+
+</body>
+</html>
