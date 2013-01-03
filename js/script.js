@@ -1,6 +1,6 @@
 var myForm = document.getElementById('formDetails');
 
-if(myForm !== null){
+if(myForm !== null){ //checks that form has been completed
 
     myForm.onsubmit = function () {
 
@@ -137,25 +137,25 @@ if(myForm !== null){
     // Gets the string and splits it up
     function getQueryVariable(variable) {
             
-            //Get the current url
-            var query = window.location.search.substring(1);
-            
-            //Decode any funky characters
-            query = decodeURIComponent(query);
-            
-            //Split the string on ampersands and assign key value pair results to an array
-            var vars = query.split("&");
-            
-            //Loop through the array and split keys from values. Return only values
-            for (var i=0;i<vars.length;i++) {
-                var pair = vars[i].split("=");
-            
-                if(pair[0] === variable){
-                    return pair[1];
-                }
+        //Get the current url
+        var query = window.location.search.substring(1);
+        
+        //Decode any funky characters
+        query = decodeURIComponent(query);
+        
+        //Split the string on ampersands and assign key value pair results to an array
+        var vars = query.split("&");
+        
+        //Loop through the array and split keys from values. Return only values
+        for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split("=");
+        
+            if(pair[0] === variable){
+                return pair[1];
             }
+        }
 
-            return(false);
+        return(false);
     }
 
 
@@ -171,11 +171,11 @@ if(myForm !== null){
         // Create an array       
         var arr = [printFirstName, printLastName, printEmail, printDOB, printGender, printCountry];
 
-        var listItem,
-        indexNum = 0,
-        detailsList = document.getElementById('detailsList');
+        var listItem, //set variable for the list item
+            indexNum = 0, //get currently active items index number
+            detailsList = document.getElementById('detailsList');
 
-        // loop through the items and add each one into an li
+        // Loop through the items and add each one into an li
         function printDetails() {
             for (i = 0; i < arr.length; i++ ) { 
                 // Create the <li> element
@@ -187,6 +187,5 @@ if(myForm !== null){
             }
         }
 
-        printDetails();
-        
+        printDetails();   
 }
