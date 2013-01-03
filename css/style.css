@@ -132,7 +132,7 @@ figure { margin: 0; }
    Forms
    ========================================================================== */
 
-form { margin: 20px;padding:10px; }
+form { margin: 0;padding:0; }
 fieldset { border: 0; margin: 0; padding: 0; }
 
 /* Indicate that 'label' will shift focus to the associated form element */
@@ -272,6 +272,10 @@ td { vertical-align: top; }
 
 /*  Soph form styles */
 
+div[role="main"] {
+  margin-left:100px;
+}
+
 form{
 	width: 400px;
 }
@@ -319,7 +323,6 @@ p.error {
   margin: 20px 0;
 }
 #country {
-  margin-left:120px;
   padding-left:2px;
 }
 
@@ -335,6 +338,15 @@ p.error {
 #terms-wrap label {
   float:right;
   width:400px;
+}
+ul {
+  margin:0;
+  padding:0;
+  list-style-type: none;
+}
+ul li {
+  margin:5px 0 0;
+  padding:0;
 }
 
 

@@ -160,12 +160,12 @@ if(myForm !== null){
 
 
     //create varialbles for each
-    var printFirstName = '<p>FirstName: ' + getQueryVariable('firstName') + '</p>',
-        printLastName = '<p>Last Name: ' + getQueryVariable('lastName') + '</p>',
-        printEmail = '<p>Email Address: ' + getQueryVariable('emailAddress') + '</p>',
-        printDOB = '<p>Date of Birth: ' + getQueryVariable('birthDateDay') + '/' + getQueryVariable('birthDateMonth') + '/' + getQueryVariable('birthDateYear') + '</p>',
-        printGender = '<p>Gender: ' + getQueryVariable('gender') + '</p>',
-        printCountry = '<p>Country: ' + getQueryVariable('selectCountry') + '</p>';
+    var printFirstName = 'First Name: ' + getQueryVariable('firstName'),
+        printLastName = 'Last Name: ' + getQueryVariable('lastName'),
+        printEmail = 'Email Address: ' + getQueryVariable('emailAddress'),
+        printDOB = 'Date of Birth: ' + getQueryVariable('birthDateDay') + '/' + getQueryVariable('birthDateMonth') + '/' + getQueryVariable('birthDateYear'),
+        printGender = 'Gender: ' + getQueryVariable('gender'),
+        printCountry = 'Country: ' + getQueryVariable('selectCountry');
 
 
         // Create an array       
@@ -175,6 +175,7 @@ if(myForm !== null){
         indexNum = 0,
         detailsList = document.getElementById('detailsList');
 
+        // loop through the items and add each one into an li
         function printDetails() {
             for (i = 0; i < arr.length; i++ ) { 
                 // Create the <li> element
