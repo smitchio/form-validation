@@ -294,9 +294,6 @@ input[type="radio"] {
   float:left;
   margin-right:20px;
 }
-button {
-	margin: 20px 0 0 120px;
-}
 .selectWrap {
 	overflow: hidden;
 	width: 400px;
@@ -319,8 +316,26 @@ p.error {
 }
 #formWrapRadio {
   overflow:hidden;
+  margin: 20px 0;
+}
+#country {
+  margin-left:120px;
+  padding-left:2px;
 }
 
+#terms-wrap {
+  margin:15px 0;
+}
+#terms-wrap input {
+  float:left;
+  clear:both;
+  width:40px;
+  margin-top:4px;
+}
+#terms-wrap label {
+  float:right;
+  width:400px;
+}
 
 
 

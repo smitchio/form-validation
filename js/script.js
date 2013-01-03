@@ -36,15 +36,14 @@ if(myForm !== null){
 
                 //console.log(errors);
 
+                //Check each input has been completed
                 if (element.type === "text") {
                     //console.log(element.value);
 
                     if (element.value === "") {
                         element.parentNode.innerHTML+='<p class="error">' + errorMessage + '</p>';
                     }
-                    
                 }
-
                 
                 // Check gender
                 if (element.name === "gender") {
@@ -62,20 +61,20 @@ if(myForm !== null){
                 }
             }
 
+            // Check Age    
             var ageError = checkAge();
-
             if (ageError !== ''){
                 document.getElementById('dob').innerHTML+= '<p class="error">' + ageError + '</p>';
             } 
 
+            // Check country
             var countryError = checkCountry();
-
             if (countryError !== '') {
                 document.getElementById('country').innerHTML+= '<p class="error">' + countryError + '</p>';
             }
         }
 
-
+        // Check country function
         var checkCountry = function() {
             if (selectCountry.value === "") {
                 return 'You must select a country'
@@ -86,6 +85,7 @@ if(myForm !== null){
             }         
         }
 
+        //Check Age function
         var checkAge = function () {
 
             /* the minumum age you want to allow in */
@@ -114,15 +114,27 @@ if(myForm !== null){
             }
         }
 
-        checkValidation();
-        //return false; 
+        // function getQueryVariable(variable) {
+        //     //Get the current url
+        //     var query = window.location.search.substring(1);
+        //     //Decode any funky characters
+        //     query = decodeURIComponent(query);
+        //     //Split the string on ampersands and assign key value pair results to an array
+        //     var vars = query.split("&");
+        //     //Loop through the array and split keys from values. Return only values
+            
+        //     for (var i=0;i<vars.length;i++) {
+        //         var pair = vars[i].split("=");
+            
+        //         if(pair[0] === variable){
+        //             return pair[1];
+        //         }
+        //     }
+        //     return(false);
+        // }
 
-        // if (checkValidation() === true) {
-        //     alert('you must complete all details');
-        //     return false;
-        // } else {
-        //     return true;
-        // };
+        checkValidation();
+        return false; 
            
     };
 

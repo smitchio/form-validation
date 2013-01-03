@@ -203,11 +203,11 @@
 				</select>
 			</div>
 			<div id="formWrapRadio">
-				<label for="male"> Male</label><input type="radio" id="male" name="gender" value="male" />
+				<label for="male">Male</label><input type="radio" id="male" name="gender" value="male" />
 				<label for="female">Female</label><input type="radio" id="female" name="gender" value="female" /> 
 			</div>
 
-			<div class="formWrap" id="country">
+			<div id="country" class="selectWrap">
 				<select id="selectCountry" name="selectCountry" data-error="You must select a country">
 					<option value="">Select your country</option>
 					<option value="UK">UK</option>
@@ -216,8 +216,8 @@
 				</select>
 			</div>
 
-			<div class="formWrap">
-				<label for="terms"> Please agree to the terms and conditions</label><input type="checkbox" id="terms" name="terms" data-error="You must agree to the terms" />
+			<div id="terms-wrap" class="formWrap">
+				<label for="terms"> Please agree to the terms and conditions <input type="checkbox" id="terms" name="terms" data-error="You must agree to the terms" /></label>
 			</div>
 				
 			<button type="submit">Submit</button>
