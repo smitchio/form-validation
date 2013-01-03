@@ -1,21 +1,16 @@
 var myForm = document.getElementById('formDetails');
 
-if(myForm !== null){ //checks that form has been completed
+if (myForm !== null) { //checks that form has been completed
 
     myForm.onsubmit = function () {
 
+        "use strict";
+
         var errorMessage = null,
-            firstName = document.getElementById('firstName'),
-            lastName = document.getElementById('lastName'),
-            emailAddress = document.getElementById('emailAddress'),
             female = document.getElementById('female'),
             male = document.getElementById('male'),
             selectCountry = document.getElementById('selectCountry'),
-            formWrapRadio = document.getElementById('formWrapRadio'),
-            formWrap = document.getElementById('formWrap'),
-            gender = document.getElementsByName('gender'),
-            terms = document.getElementById('terms'),
-            passedValidation = true;
+            terms = document.getElementById('terms');
 
 
         var checkValidation = function () {
@@ -26,13 +21,13 @@ if(myForm !== null){ //checks that form has been completed
 
             var formLength = myForm.length - 1; // checks through all elements stopping at the submit button of the form
 
-            for (i = 0; i < formLength; i++) {
+            for (var i = 0; i < formLength; i++) {
                 element = myForm[i];
 
                 errorMessage = element.getAttribute('data-error');
                 var errors = element.parentNode.getElementsByClassName('error');
 
-                if(errors.length){
+                if (errors.length) {
                     errors[0].parentNode.removeChild(errors[0]);
                 }
 
@@ -43,24 +38,24 @@ if(myForm !== null){ //checks that form has been completed
                     //console.log(element.value);
 
                     if (element.value === "") {
-                        element.parentNode.innerHTML+='<p class="error">' + errorMessage + '</p>';
+                        element.parentNode.innerHTML += '<p class="error">' + errorMessage + '</p>';
                         valid = false;
                     }
                 }
-                
+
                 // Check gender
                 if (element.name === "gender") {
-                
-                    if (female.checked != 1 && male.checked != 1) {
-                        element.parentNode.innerHTML+='<p class="error">You must select a gender</p>';
+
+                    if (female.checked !== 1 && male.checked !== 1) {
+                        element.parentNode.innerHTML += '<p class="error">You must select a gender</p>';
                         valid = false;
                     }
                 }
 
                 // validate Terms
                 if (element.type === "checkbox") {
-                    if (terms.checked != 1) {
-                        element.parentNode.innerHTML+='<p class="error">' + errorMessage + '</p>';
+                    if (terms.checked !== 1) {
+                        element.parentNode.innerHTML += '<p class="error">' + errorMessage + '</p>';
                         valid = false;
                     }
                 }
@@ -68,43 +63,44 @@ if(myForm !== null){ //checks that form has been completed
 
             // Check Age    
             var ageError = checkAge();
-            if (ageError !== ''){
-                document.getElementById('dob').innerHTML+= '<p class="error">' + ageError + '</p>';
+            if (ageError !== '') {
+                document.getElementById('dob').innerHTML += '<p class="error">' + ageError + '</p>';
                 valid = false;
             } 
 
             // Check country
             var countryError = checkCountry();
+
             if (countryError !== '') {
-                document.getElementById('country').innerHTML+= '<p class="error">' + countryError + '</p>';
+                document.getElementById('country').innerHTML += '<p class="error">' + countryError + '</p>';
                 valid = false;
             }
 
             return valid;
 
 
-        }
+        };
 
         // Check country function
         var checkCountry = function() {
             if (selectCountry.value === "") {
-                return 'You must select a country'
+                return 'You must select a country';
             } else if (selectCountry.value === "China" || selectCountry.value === "USA") {
                 return 'The service is not yet available in USA or China. Please select another.';
             } else {
                 return '';
             }         
-        }
+        };
 
         //Check Age function
         var checkAge = function () {
 
             /* the minumum age you want to allow in */
             var min_age = 18;
-
-            var year = parseInt(document.forms["formDetails"]["birthDateYear"].value);
-            var month = parseInt(document.forms["formDetails"]["birthDateMonth"].value) - 1; // - 1 is for when user is 17 years and 364 days old.
-            var day = parseInt(document.forms["formDetails"]["birthDateDay"].value);
+            //var year = parseInt(document.forms["formDetails"]["birthDateYear"].value);
+            var year = parseInt(document.forms.formDetails.birthDateYear.value);
+            var month = parseInt(document.forms.formDetails.birthDateMonth.value) - 1; // - 1 is for when user is 17 years and 364 days old.
+            var day = parseInt(document.forms.formDetails.birthDateDay.value);
 
             //console.log(day, month, year);
 
@@ -113,7 +109,7 @@ if(myForm !== null){ //checks that form has been completed
             } else {
 
                 var theirDate = new Date((year + min_age), month, day);
-                var today = new Date;
+                var today = new Date();
 
                 //console.log(today.getTime(), theirDate.getTime(), today.getTime() - theirDate.getTime());
 
@@ -123,10 +119,10 @@ if(myForm !== null){ //checks that form has been completed
                     return '';
                 }
             }
-        }
+        };
 
         return checkValidation();
-        //return false; 
+        //return false; stops form from submitting
            
     };
 
@@ -137,6 +133,8 @@ if(myForm !== null){ //checks that form has been completed
     // Gets the string and splits it up
     function getQueryVariable(variable) {
             
+        "use strict";
+
         //Get the current url
         var query = window.location.search.substring(1);
         
@@ -150,7 +148,7 @@ if(myForm !== null){ //checks that form has been completed
         for (var i=0;i<vars.length;i++) {
             var pair = vars[i].split("=");
         
-            if(pair[0] === variable){
+            if (pair[0] === variable) {
                 return pair[1];
             }
         }
@@ -177,7 +175,10 @@ if(myForm !== null){ //checks that form has been completed
 
         // Loop through the items and add each one into an li
         function printDetails() {
-            for (i = 0; i < arr.length; i++ ) { 
+
+            "use strict";
+
+            for (var i = 0; i < arr.length; i++ ) { 
                 // Create the <li> element
                 listItem = document.createElement("li");
                 // Add the letter between the <li> tags
