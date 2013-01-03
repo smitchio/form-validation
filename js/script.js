@@ -20,7 +20,9 @@ if(myForm !== null){
 
         var checkValidation = function () {
 
-            var element = "";
+            var element = "", 
+                valid = true;   //always assume it validates, if not add valid = flase to each validation check so form does not submit. This
+                                // is the same as having return false after calling checkValidation() at end. 
 
             var formLength = myForm.length - 1; // checks through all elements stopping at the submit button of the form
 
@@ -42,6 +44,7 @@ if(myForm !== null){
 
                     if (element.value === "") {
                         element.parentNode.innerHTML+='<p class="error">' + errorMessage + '</p>';
+                        valid = false;
                     }
                 }
                 
@@ -50,6 +53,7 @@ if(myForm !== null){
                 
                     if (female.checked != 1 && male.checked != 1) {
                         element.parentNode.innerHTML+='<p class="error">You must select a gender</p>';
+                        valid = false;
                     }
                 }
 
@@ -57,6 +61,7 @@ if(myForm !== null){
                 if (element.type === "checkbox") {
                     if (terms.checked != 1) {
                         element.parentNode.innerHTML+='<p class="error">' + errorMessage + '</p>';
+                        valid = false;
                     }
                 }
             }
@@ -65,13 +70,19 @@ if(myForm !== null){
             var ageError = checkAge();
             if (ageError !== ''){
                 document.getElementById('dob').innerHTML+= '<p class="error">' + ageError + '</p>';
+                valid = false;
             } 
 
             // Check country
             var countryError = checkCountry();
             if (countryError !== '') {
                 document.getElementById('country').innerHTML+= '<p class="error">' + countryError + '</p>';
+                valid = false;
             }
+
+            return valid;
+
+
         }
 
         // Check country function
@@ -114,33 +125,67 @@ if(myForm !== null){
             }
         }
 
-        // function getQueryVariable(variable) {
-        //     //Get the current url
-        //     var query = window.location.search.substring(1);
-        //     //Decode any funky characters
-        //     query = decodeURIComponent(query);
-        //     //Split the string on ampersands and assign key value pair results to an array
-        //     var vars = query.split("&");
-        //     //Loop through the array and split keys from values. Return only values
-            
-        //     for (var i=0;i<vars.length;i++) {
-        //         var pair = vars[i].split("=");
-            
-        //         if(pair[0] === variable){
-        //             return pair[1];
-        //         }
-        //     }
-        //     return(false);
-        // }
-
-        checkValidation();
-        return false; 
+        return checkValidation();
+        //return false; 
            
     };
 
-}
-else{
-    //were on confirmation page
+} else {
+    
+    // Takes you to confirmation page if validation is passed.
 
-    alert('confirm')
+    // Gets the string and splits it up
+    function getQueryVariable(variable) {
+            
+            //Get the current url
+            var query = window.location.search.substring(1);
+            
+            //Decode any funky characters
+            query = decodeURIComponent(query);
+            
+            //Split the string on ampersands and assign key value pair results to an array
+            var vars = query.split("&");
+            
+            //Loop through the array and split keys from values. Return only values
+            for (var i=0;i<vars.length;i++) {
+                var pair = vars[i].split("=");
+            
+                if(pair[0] === variable){
+                    return pair[1];
+                }
+            }
+
+            return(false);
+    }
+
+
+    //create varialbles for each
+    var printFirstName = '<p>FirstName: ' + getQueryVariable('firstName') + '</p>',
+        printLastName = '<p>Last Name: ' + getQueryVariable('lastName') + '</p>',
+        printEmail = '<p>Email Address: ' + getQueryVariable('emailAddress') + '</p>',
+        printDOB = '<p>Date of Birth: ' + getQueryVariable('birthDateDay') + '/' + getQueryVariable('birthDateMonth') + '/' + getQueryVariable('birthDateYear') + '</p>',
+        printGender = '<p>Gender: ' + getQueryVariable('gender') + '</p>',
+        printCountry = '<p>Country: ' + getQueryVariable('selectCountry') + '</p>';
+
+
+        // Create an array       
+        var arr = [printFirstName, printLastName, printEmail, printDOB, printGender, printCountry];
+
+        var listItem,
+        indexNum = 0,
+        detailsList = document.getElementById('detailsList');
+
+        function printDetails() {
+            for (i = 0; i < arr.length; i++ ) { 
+                // Create the <li> element
+                listItem = document.createElement("li");
+                // Add the letter between the <li> tags
+                listItem.innerHTML = arr[indexNum++];
+                // Append the <li> to the bottom of the <ul> element
+                detailsList.appendChild(listItem);
+            }
+        }
+
+        printDetails();
+        
 }
